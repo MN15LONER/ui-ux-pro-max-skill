@@ -19,7 +19,7 @@ export async function extractZip(zipPath: string, destDir: string): Promise<void
       await execAsync(`unzip -o "${zipPath}" -d "${destDir}"`);
     }
   } catch (error) {
-    throw new Error(`Failed to extract zip: ${error}`);
+    throw new Error('Failed to extract zip', { cause: error })
   }
 }
 
